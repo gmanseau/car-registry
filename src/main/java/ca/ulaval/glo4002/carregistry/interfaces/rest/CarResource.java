@@ -1,4 +1,4 @@
-package ca.ulaval.glo4002.carregistry.rest;
+package ca.ulaval.glo4002.carregistry.interfaces.rest;
 
 import java.net.URI;
 
@@ -10,24 +10,25 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import ca.ulaval.glo4002.carregistry.application.RegistryApplicationService;
+import ca.ulaval.glo4002.carregistry.application.dto.CarCreationRequest;
 import ca.ulaval.glo4002.carregistry.domain.Car;
-import ca.ulaval.glo4002.carregistry.services.RegistryService;
-import ca.ulaval.glo4002.carregistry.services.dto.CarCreationRequest;
+import ca.ulaval.glo4002.carregistry.domain.CarOwnerId;
 
 @Path("/owners/{ownerId}/cars/")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class CarResource {
 	
-	private RegistryService registry;
+	private RegistryApplicationService registry;
 
 	public CarResource() {
-		registry = new RegistryService();
+		registry = new RegistryApplicationService();
 	}
 	
 	@POST
 	public Response createCar(@PathParam("ownerId") int ownerId, CarCreationRequest request) {
-		Car car = registry.addCar(ownerId, request);
+		Car car = registry.addCar(new CarOwnerId(ownerId), request);
 		return Response.created(URI.create("/owners/" + ownerId  + "/cars/" + car.getId())).build();
 	}
 

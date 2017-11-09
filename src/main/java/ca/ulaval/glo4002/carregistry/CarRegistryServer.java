@@ -8,7 +8,7 @@ import org.glassfish.jersey.servlet.ServletContainer;
 
 import ca.ulaval.glo4002.carregistry.domain.CarOwner;
 import ca.ulaval.glo4002.carregistry.domain.CarRegistry;
-import ca.ulaval.glo4002.carregistry.persistence.InMemoryCarRegistry;
+import ca.ulaval.glo4002.carregistry.infrastructure.persistence.InMemoryCarRegistry;
 
 public class CarRegistryServer {
 	  public static void main(String[] args) {
@@ -43,7 +43,7 @@ public class CarRegistryServer {
 		}
 
 	    private void configurerJersey(ServletContextHandler servletContextHandler) {
-	        ServletContainer container = new ServletContainer(new ResourceConfig().packages("ca.ulaval.glo4002.carregistry.rest"));
+	        ServletContainer container = new ServletContainer(new ResourceConfig().packages("ca.ulaval.glo4002.carregistry.interfaces.rest"));
 	        ServletHolder jerseyServletHolder = new ServletHolder(container);
 	        servletContextHandler.addServlet(jerseyServletHolder, "/*");
 	    }

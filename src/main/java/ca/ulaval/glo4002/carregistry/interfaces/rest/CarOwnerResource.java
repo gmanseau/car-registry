@@ -1,4 +1,4 @@
-package ca.ulaval.glo4002.carregistry.rest;
+package ca.ulaval.glo4002.carregistry.interfaces.rest;
 
 import java.util.List;
 
@@ -7,16 +7,16 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import ca.ulaval.glo4002.carregistry.services.RegistryService;
-import ca.ulaval.glo4002.carregistry.services.dto.CarOwnerDto;
+import ca.ulaval.glo4002.carregistry.application.RegistryApplicationService;
+import ca.ulaval.glo4002.carregistry.application.dto.CarOwnerDto;
 
 @Path("/owners")
 @Produces(MediaType.APPLICATION_JSON)
 public class CarOwnerResource {
-	private RegistryService registryService;
+	private RegistryApplicationService registryService;
 
 	public CarOwnerResource() {
-		this.registryService = new RegistryService();
+		this.registryService = new RegistryApplicationService();
 	}
 	
 	@GET

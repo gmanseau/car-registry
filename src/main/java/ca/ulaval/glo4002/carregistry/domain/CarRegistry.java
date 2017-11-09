@@ -4,7 +4,7 @@ import java.util.Collection;
 
 public interface CarRegistry {
 
-	CarOwner findOwner(int ownerId);
+	CarOwner findOwner(CarOwnerId ownerId);
 
 	void insert(CarOwner owner);
 

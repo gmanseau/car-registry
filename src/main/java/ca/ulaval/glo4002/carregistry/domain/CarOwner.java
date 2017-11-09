@@ -4,23 +4,23 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CarOwner {
-	
-	private int id;
+
+	private CarOwnerId id;
 	private String name;
 	private List<Car> cars = new LinkedList<>();
-	
+
 	public CarOwner(String name) {
 		this.name = name;
 	}
 
-	public int getId() {
+	public CarOwnerId getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(CarOwnerId id) {
 		this.id = id;
 	}
-	
+
 	public List<Car> getCars() {
 		return cars;
 	}
@@ -28,7 +28,7 @@ public class CarOwner {
 	public void addCar(Car car) {
 		cars.add(car);
 	}
-	
+
 	public String getName() {
 		return name;
 	}

@@ -2,18 +2,18 @@ package ca.ulaval.glo4002.carregistry.domain;
 
 public class Car {
 
-	private int id;
+	private CarId id;
 	private String plate;
 	
 	public Car(String plate) {
 		this.plate = plate;
 	}
 
-	public int getId() {
+	public CarId getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(CarId id) {
 		this.id = id;
 	}
 
@@ -23,6 +23,10 @@ public class Car {
 
 	public void setPlate(String plate) {
 		this.plate = plate;
+	}
+
+	public boolean isNew() {
+		return id == null || id.isNew();
 	}
 	
 	

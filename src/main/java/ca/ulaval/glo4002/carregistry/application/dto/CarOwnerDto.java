@@ -1,4 +1,4 @@
-package ca.ulaval.glo4002.carregistry.services.dto;
+package ca.ulaval.glo4002.carregistry.application.dto;
 
 import java.util.Collection;
 
