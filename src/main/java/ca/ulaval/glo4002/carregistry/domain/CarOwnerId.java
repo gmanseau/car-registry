@@ -1,14 +1,12 @@
 package ca.ulaval.glo4002.carregistry.domain;
 
 public class CarOwnerId {
-	private int id;
+	public static final int NEW = 0;
+
+	private Integer id;
 
 	public CarOwnerId(int id) {
 		this.id = id;
-	}
-
-	private CarOwnerId() {
-		// For persistence or serialization only
 	}
 
 	public int toInteger() {
@@ -36,4 +34,5 @@ public class CarOwnerId {
 
 		return ((CarOwnerId) other).id == id;
 	}
+
 }

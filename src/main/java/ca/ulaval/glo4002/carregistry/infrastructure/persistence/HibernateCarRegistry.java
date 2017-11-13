@@ -18,7 +18,7 @@ public class HibernateCarRegistry implements CarRegistry {
 
 	@Override
 	public CarOwner findOwner(CarOwnerId ownerId) {
-		return entityManager.find(CarOwner.class, ownerId);
+		return entityManager.find(CarOwner.class, ownerId.toInteger());
 	}
 
 	@Override
